@@ -8,7 +8,6 @@ from mapper import Mapper
 
 channel_outputs = []
 
-
 def main():
     dmx = OutDmx()
     dmx.setPort('/dev/ttyUSB0')
@@ -16,9 +15,9 @@ def main():
     vixenlog = OutLog()
     # DMX is 1-indexed
     out_function = lambda channels: dmx.sendDMX([ch + 1 for ch in channels])
-#    out_function = vixenlog.send
+    #out_function = vixenlog.send
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    config_path = dir_path + '/mapping.json'
+    config_path = dir_path + '/configs/octaves.json'
     mapper = Mapper(config_path)
 
     try:

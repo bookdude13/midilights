@@ -24,25 +24,29 @@ class IoThread:
 
     def _handle_message(self, message):
         """Updates channel values when a MIDI message is received"""
-        value = 0
-        if message.type == 'note_on':
-            value = _velocity_to_output(message.velocity)
-
         if message.type in ['note_on', 'note_off']:
             channels = self._get_channels(message.note)
             if channels is None:
                 print("Note not mapped:", message.note)
             else:
                 for channel in channels:
-                    self._modify_channel_value(channel, value)
+                    self._modify_channel_value(channel, message.type == 'note_on')
 
-    def _modify_channel_value(self, channel, value):
+    def _modify_channel_value(self, channel, is_on):
         """Updates the value of a channel, extending the underlying array of values as necessary"""
         num_ch = len(self._channel_values)
         if channel >= num_ch:
             diff = channel - num_ch + 1
-            extension = [0] * diff
+            extension = [1] * diff
             self._channel_values.extend(extension)
+        value = self._channel_values[channel]
+        if is_on:
+            value *= 4
+        else:
+            value /= 4
+        value = int(value)
+        if value > 254:
+            value = 254
         self._channel_values[channel] = value
 
     def _get_channels(self, note):
@@ -57,7 +61,6 @@ class IoThread:
         self._mido_backend.open_input(self._name, callback=self._handle_message)
         while not self._stop.is_set():
             if len(self._channel_values) > 0:
-                print(self._channel_values)
                 self._output_func(self._channel_values)
             time.sleep(0.1)
 
