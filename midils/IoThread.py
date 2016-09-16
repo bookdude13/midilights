@@ -41,12 +41,10 @@ class IoThread:
             self._channel_values.extend(extension)
         value = self._channel_values[channel]
         if is_on:
-            value *= 4
+            value *= 16
         else:
-            value /= 4
+            value /= 16
         value = int(value)
-        if value > 254:
-            value = 254
         self._channel_values[channel] = value
 
     def _get_channels(self, note):
@@ -61,7 +59,9 @@ class IoThread:
         self._mido_backend.open_input(self._name, callback=self._handle_message)
         while not self._stop.is_set():
             if len(self._channel_values) > 0:
-                self._output_func(self._channel_values)
+                max_bound = [254 if x > 254 else x for x in self._channel_values]
+                min_bound = [0 if x == 1 else x for x in max_bound]
+                self._output_func(min_bound)
             time.sleep(0.1)
 
 

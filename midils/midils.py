@@ -8,6 +8,7 @@ from mapper import Mapper
 
 channel_outputs = []
 
+
 def main():
     dmx = OutDmx()
     dmx.setPort('/dev/ttyUSB0')
