@@ -1,4 +1,5 @@
 # midi-lightshow
+[![Build Status](https://travis-ci.org/bookdude13/midi-lightshow.svg?branch=master)](https://travis-ci.org/bookdude13/midi-lightshow)
 [![Updates](https://pyup.io/repos/github/bookdude13/midi-lightshow/shield.svg)](https://pyup.io/repos/github/bookdude13/midi-lightshow/)
 
 
