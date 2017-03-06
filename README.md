@@ -1,4 +1,6 @@
 # midi-lightshow
+[![Updates](https://pyup.io/repos/github/bookdude13/midi-lightshow/shield.svg)](https://pyup.io/repos/github/bookdude13/midi-lightshow/)
+
 
 ```
 Usage:  
