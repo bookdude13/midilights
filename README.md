@@ -18,7 +18,7 @@ Options:
 # Setting up (this was done on a Unix system. May be slightly different commands on Windows)  
 Clone the repository: `git clone git@github.com:teslaworksumn/midi-lightshow.git`  
 Setup submodules: `git submodule init && git submodule update`  
-Install dependencies (may need to be run as root/sudo): `python3 setup.py install`  
+Install dependencies (may need to be run as root/sudo): `pip3 install -r requirements.txt`  
 If using the PortMidi backend (default), you must install PortMidi: `sudo apt install libportmidi-dev`  
 Run: `make run`
 
