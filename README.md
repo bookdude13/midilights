@@ -1,13 +1,13 @@
-# midi-lightshow
-[![Build Status](https://travis-ci.org/bookdude13/midi-lightshow.svg?branch=master)](https://travis-ci.org/bookdude13/midi-lightshow)
-[![Updates](https://pyup.io/repos/github/bookdude13/midi-lightshow/shield.svg)](https://pyup.io/repos/github/bookdude13/midi-lightshow/)
+# midilights
+[![Build Status](https://travis-ci.org/bookdude13/midi-lightshow.svg?branch=master)](https://travis-ci.org/bookdude13/midilights)
+[![Updates](https://pyup.io/repos/github/bookdude13/midi-lightshow/shield.svg)](https://pyup.io/repos/github/bookdude13/midilights/)
 
 
 ```
 Usage:  
-    midils.py list [<backend>]  
-    midils.py run <midi-input> <dmx> <config> [<backend>]  
-    midils.py run (-d || --dry) <midi-input> <config> [<backend>]  
+    midilights.py list [<backend>]  
+    midilights.py run <midi-input> <dmx> <config> [<backend>]  
+    midilights.py run (-d || --dry) <midi-input> <config> [<backend>]  
 
 Options:  
     <backend>   Mido backend to use [default: 'mido.backends.portmidi']  
