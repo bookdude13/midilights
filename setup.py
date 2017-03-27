@@ -6,7 +6,7 @@ setup(
     author='Ryan Fredlund',
     author_email='rfredlund13@gmail.com',
     packages=['midilights'],
-    url='https://github.com/bookdude13/midilights',
+    url='https://github.com/teslaworksumn/lightshow-midilights',
     license='LICENSE',
     description='Interface between a midi keyboard and some dmx-controlled lights',
     install_requires=['docopt', 'mido', 'pyserial']
